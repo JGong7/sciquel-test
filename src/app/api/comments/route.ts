@@ -1,7 +1,11 @@
 import { PrismaClient } from "@prisma/client";
 import { NextRequest, NextResponse } from "next/server";
 
-/* Assuming that env("DATABASE_URL") is set in .env file */
+
+/**
+ * Assuming that env("DATABASE_URL") is set in .env file 
+ * In the env file, I added a personal mongoDB connection string to test out the code.
+ */
 const prisma = new PrismaClient();
 
 export async function GET(req: NextRequest){
@@ -14,7 +18,7 @@ export async function GET(req: NextRequest){
             },
             take: 50,
         });
-    
+
         /* If successful, return the most recent comments*/
         return NextResponse.json({ test: "success", comments: recentComments}, {
             status: 200,
