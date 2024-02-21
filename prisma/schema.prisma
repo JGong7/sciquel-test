@@ -10,9 +10,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Comment {
+model comment {
   commentId String @id @default(auto()) @map("_id") @db.ObjectId
   email String @unique
   name String?
-  commentText String
+  comment String
 }

@@ -33,12 +33,13 @@ export async function POST(req: NextRequest){
     try{
         /* Extract email, name, and comment text from the request and create a new 
         comment in the database. */
-        const {email, name, commentText} = await req.json();
+        const {email, name, comment} = await req.json();
+        console.log(email, name, comment);
         const newComment = await prisma.comment.create({
             data :{
                 email,
                 name,
-                commentText,
+                comment,
             },
         });
     
