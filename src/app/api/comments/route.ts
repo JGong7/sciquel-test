@@ -10,7 +10,7 @@ const prisma = new PrismaClient();
 
 export async function GET(req: NextRequest){
     try{
-        /*  Here, since we used autoincrement() for commentId, can sort 
+        /*  Here, since we mapped the commentId to MongoDB's '_id' field as an ObjectId,  we can sort 
         by commentId in an decreasing order to get most recent comments  */
         const recentComments = await prisma.comment.findMany({
             orderBy: {
